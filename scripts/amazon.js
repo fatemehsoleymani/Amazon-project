@@ -73,7 +73,9 @@ document.querySelectorAll('.js-add-to-cart').forEach((button) => {
   // addedMessageTimeoutId variable (one for every time
   // we run the loop) so it lets us keep track of many
   // timeoutIds (one for each product).
+
   let addedMessageTimeoutId;
+
   button.addEventListener('click', () => {
     const {productId} = button.dataset;
 
@@ -111,7 +113,8 @@ document.querySelectorAll('.js-add-to-cart').forEach((button) => {
     addedMessage.classList.add('added-to-cart-visible');
 
     // Check if a previous timeoutId exists. If it does,
-      // we will stop it.
+    // we will stop it.
+
     if (addedMessageTimeoutId) {
       clearTimeout(addedMessageTimeoutId);
     }
@@ -120,6 +123,7 @@ document.querySelectorAll('.js-add-to-cart').forEach((button) => {
     addedMessage.classList.remove('added-to-cart-visible');
     }, 2000);
     // Save the timeoutId so we can stop it later.
+    
     addedMessageTimeoutId = timeoutId;
   });
 })
