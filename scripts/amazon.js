@@ -60,6 +60,20 @@ products.forEach((product) => {
 
 document.querySelector('.js-products-grid').innerHTML = productHTML;
 
+
+function updateCartQuantity() {
+  let cartQuantity = 0;
+
+  cart.forEach((cartItem) => {
+    cartQuantity += cartItem.quantity;
+  });
+
+  document.querySelector('.js-cart-quantity')
+    .innerHTML = cartQuantity;
+}
+
+updateCartQuantity();
+
 document.querySelectorAll('.js-add-to-cart').forEach((button) => {
   // closure. Each time we run the loop, it will create
   // a new variable called addedMessageTimeoutId and do
@@ -88,6 +102,7 @@ document.querySelectorAll('.js-add-to-cart').forEach((button) => {
     })
 
     document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
+
 
     const addedMessage = document.querySelector(`.js-added-to-cart-${productId}`);
 
