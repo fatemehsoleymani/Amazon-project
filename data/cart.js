@@ -1,4 +1,9 @@
-export let cart = JSON.parse(localStorage.getItem('cart'));
+export let cart;
+
+loadFromStorage();
+
+export function loadFromStorage() {
+  cart = JSON.parse(localStorage.getItem('cart'));
 
 if (!cart) {
   cart =  [{
@@ -12,7 +17,7 @@ if (!cart) {
   }
   ];
 }
-
+};
 
 function saveToStorage () {
   localStorage.setItem('cart', JSON.stringify(cart));
@@ -28,7 +33,8 @@ export function addToCart(productId) {
   });
 
   const quantitySelector = document.querySelector(`.js-quantity-selector-${productId}`);
-  const quantity = Number(quantitySelector.value);
+  const quantity = quantitySelector ? Number(quantitySelector.value) : 1;
+
 
   const deliveryOptionSelector = document.querySelector(`.js-delivery-option-${productId}`);
   const deliveryOptionId = deliveryOptionSelector ? deliveryOptionSelector.value : '1'
