@@ -1,4 +1,4 @@
-import dayjs from 'https://cdn.jsdelivr.net/npm/dayjs@1.11.10/esm/index.js';
+import dayjs from 'https://cdn.skypack.dev/dayjs';
 
 export const deliveryOptions = [{
   id: '1',
