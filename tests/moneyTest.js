@@ -31,3 +31,4 @@ if (formatCurrency(2000.0) === '20.00') {
 } else {
   console.log('unpassed!');
 }
+
